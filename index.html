@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Thiego Araújo — Cybersecurity & Cloud Security portfolio, certifications, projects and technical skills.">
+  <meta name="theme-color" content="#08110d">
+  <title>THIEGO ARAÚJO — Cybersecurity Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Back to top"><span>TA</span> / SECURITY</a>
+    <nav id="nav">
+      <a href="#about">ABOUT</a>
+      <a href="#certifications">CERTIFICATIONS</a>
+      <a href="#skills">SKILLS</a>
+      <a href="#projects">PROJECTS</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+    <button class="menu" id="menuBtn" aria-label="Open menu">☰</button>
+  </header>
+
+  <main id="top">
+    <section class="hero section-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">CYBERSECURITY / CLOUD SECURITY / INFRASTRUCTURE</p>
+        <h1>SECURITY<br><em>WITHOUT</em><br>SHORTCUTS.</h1>
+        <p class="lead">Technical portfolio focused on cybersecurity, cloud security, vulnerability management, CTEM, infrastructure and hands-on learning.</p>
+        <div class="actions">
+          <a class="btn primary" href="#certifications">VIEW CERTIFICATIONS <span>↘</span></a>
+          <a class="btn ghost" href="https://www.linkedin.com/" target="_blank" rel="noopener">LINKEDIN ↗</a>
+        </div>
+      </div>
+      <div class="hero-terminal">
+        <div class="terminal-head"><span></span><span></span><span></span><code>profile.sh</code></div>
+        <pre><span class="muted">$ whoami</span>
+thiego@security:~$ <b>analyst</b>
+
+<span class="muted">$ focus --current</span>
+Cybersecurity
+Cloud Security
+Vulnerability Management
+CTEM / Attack Surface
+Kubernetes / Linux
+
+<span class="muted">$ status</span>
+<span class="ok">● OPEN TO OPPORTUNITIES</span></pre>
+      </div>
+    </section>
+
+    <section class="metrics">
+      <div><strong id="certCount">30+</strong><span>CERTIFICATIONS<br>& TRAINING</span></div>
+      <div><strong>10+</strong><span>SECURITY<br>DOMAINS</span></div>
+      <div><strong>20+</strong><span>TECHNOLOGIES<br>& TOOLS</span></div>
+      <div><strong>∞</strong><span>HOURS OF<br>LABS & STUDY</span></div>
+    </section>
+
+    <section id="about" class="section split">
+      <div class="section-label">01 / ABOUT</div>
+      <div>
+        <p class="kicker">TECHNICAL MINDSET</p>
+        <h2>BUILD.<br>TEST.<br>SECURE.</h2>
+        <p class="body-copy">I use this space to document my technical development in cybersecurity and cloud. The goal is simple: make learning visible through verifiable certifications, practical projects, labs and technical notes.</p>
+        <div class="tags">
+          <span>CYBERSECURITY</span><span>CLOUD</span><span>CTEM</span><span>VULNERABILITY MANAGEMENT</span><span>LINUX</span><span>KUBERNETES</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications" class="section">
+      <div class="section-label">02 / CERTIFICATIONS</div>
+      <div class="section-content">
+        <div class="section-heading">
+          <div>
+            <p class="kicker">VERIFIABLE CREDENTIALS</p>
+            <h2>CREDENTIAL<br>WALL.</h2>
+          </div>
+          <p class="small-note">Replace the sample cards below with your real certificates and official verification links.</p>
+        </div>
+
+        <div class="filters" id="filters">
+          <button class="filter active" data-filter="all">ALL</button>
+          <button class="filter" data-filter="cybersecurity">CYBERSECURITY</button>
+          <button class="filter" data-filter="cloud">CLOUD</button>
+          <button class="filter" data-filter="infrastructure">INFRASTRUCTURE</button>
+          <button class="filter" data-filter="other">OTHER</button>
+        </div>
+
+        <div class="cards" id="certCards">
+          <article class="card" data-category="cybersecurity">
+            <div class="card-top"><span>01</span><span>CYBERSECURITY</span></div>
+            <h3>Security Certification</h3>
+            <p>Vendor / Institution</p>
+            <div class="card-meta"><span>2026</span><a href="#" class="verify">VERIFY ↗</a></div>
+          </article>
+          <article class="card" data-category="cloud">
+            <div class="card-top"><span>02</span><span>CLOUD</span></div>
+            <h3>Cloud Security Training</h3>
+            <p>Vendor / Institution</p>
+            <div class="card-meta"><span>2026</span><a href="#" class="verify">VERIFY ↗</a></div>
+          </article>
+          <article class="card" data-category="infrastructure">
+            <div class="card-top"><span>03</span><span>INFRASTRUCTURE</span></div>
+            <h3>Kubernetes / Linux</h3>
+            <p>Vendor / Institution</p>
+            <div class="card-meta"><span>2026</span><a href="#" class="verify">VERIFY ↗</a></div>
+          </article>
+          <article class="card" data-category="cybersecurity">
+            <div class="card-top"><span>04</span><span>CYBERSECURITY</span></div>
+            <h3>Vulnerability Management</h3>
+            <p>Vendor / Institution</p>
+            <div class="card-meta"><span>2026</span><a href="#" class="verify">VERIFY ↗</a></div>
+          </article>
+          <article class="card" data-category="cloud">
+            <div class="card-top"><span>05</span><span>CLOUD</span></div>
+            <h3>Microsoft / Azure</h3>
+            <p>Vendor / Institution</p>
+            <div class="card-meta"><span>2026</span><a href="#" class="verify">VERIFY ↗</a></div>
+          </article>
+          <article class="card" data-category="other">
+            <div class="card-top"><span>06</span><span>OTHER</span></div>
+            <h3>Technical Training</h3>
+            <p>Vendor / Institution</p>
+            <div class="card-meta"><span>2026</span><a href="#" class="verify">VERIFY ↗</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section split dark-section">
+      <div class="section-label">03 / SKILLS</div>
+      <div>
+        <p class="kicker">TECH STACK</p>
+        <h2>TOOLS I<br>WORK WITH.</h2>
+        <div class="skill-grid">
+          <div><b>SECURITY</b><span>Threat Intelligence</span><span>Vulnerability Management</span><span>CTEM / ASM</span><span>EDR / XDR</span></div>
+          <div><b>CLOUD</b><span>Microsoft Azure</span><span>AWS</span><span>Cloud Security</span><span>Microsoft 365</span></div>
+          <div><b>INFRA</b><span>Linux</span><span>Kubernetes</span><span>Docker</span><span>Networking</span></div>
+          <div><b>TOOLS</b><span>Trend Vision One</span><span>Microsoft Security</span><span>Palo Alto</span><span>Proofpoint</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="section-label">04 / PROJECTS</div>
+      <div class="section-content">
+        <div class="section-heading">
+          <div>
+            <p class="kicker">PRACTICAL WORK</p>
+            <h2>LABS &<br>PROJECTS.</h2>
+          </div>
+        </div>
+        <div class="project-list">
+          <a href="#" class="project"><span>01</span><div><b>Attack Surface / CTEM</b><small>Asset discovery · prioritization · remediation</small></div><strong>↗</strong></a>
+          <a href="#" class="project"><span>02</span><div><b>Cloud Security Lab</b><small>Cloud posture · identity · exposure analysis</small></div><strong>↗</strong></a>
+          <a href="#" class="project"><span>03</span><div><b>Kubernetes Security</b><small>Containers · nodes · agents · hardening</small></div><strong>↗</strong></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <p class="kicker">KEEP IN TOUCH</p>
+      <h2>LET'S TALK<br>SECURITY.</h2>
+      <div class="actions">
+        <a class="btn primary" href="https://www.linkedin.com/" target="_blank" rel="noopener">LINKEDIN ↗</a>
+        <a class="btn ghost" href="https://github.com/" target="_blank" rel="noopener">GITHUB ↗</a>
+      </div>
+    </section>
+
+    <section id="contact" class="footer-contact">
+      <div><span class="brand"><span>TA</span> / SECURITY</span><p>Cybersecurity · Cloud · Infrastructure</p></div>
+      <div class="links"><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LINKEDIN</a><a href="https://github.com/" target="_blank" rel="noopener">GITHUB</a><a href="mailto:your@email.com">EMAIL</a></div>
+    </section>
+  </main>
+
+  <footer>© <span id="year"></span> THIEGO ARAÚJO · BUILT FOR GITHUB PAGES</footer>
+  <script src="script.js"></script>
+</body>
+</html>
