@@ -5,7 +5,7 @@ Site estático, pronto para publicar gratuitamente no **GitHub Pages**.
 ## Estrutura
 ```
 index.html          → a página inteira
-assets/script.js     → TODO o conteúdo editável (skills, experiência, certificações, projetos)
+assets/script.js     → TODO o conteúdo editável (skills, experiência, certificações, formação, projetos)
 assets/resume.pdf    → seu currículo para o botão "Currículo"
 ```
 
@@ -16,7 +16,7 @@ assets/resume.pdf    → seu currículo para o botão "Currículo"
 4. Em 1-2 minutos o link está no ar. Cole no Featured do LinkedIn.
 
 ## 2. Editar conteúdo
-Tudo em `assets/script.js`, no topo: `SKILLS`, `EXPERIENCE`, `CERTIFICATIONS`, `PROJECTS`, `CONTACT`.
+Tudo em `assets/script.js`, no topo: `SKILLS`, `EXPERIENCE`, `CERTIFICATIONS`, `EDUCATION`, `LANGUAGES`, `PROJECTS`, `CONTACT`.
 
 ## 3. Antes de publicar
 - [ ] Trocar `YOUR-GITHUB-USERNAME` pelo seu usuário real (2 lugares no `index.html`: nav e seção de contato)
