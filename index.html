@@ -1,184 +1,349 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Thiego Araújo — Cybersecurity & Cloud Security portfolio, certifications, projects and technical skills.">
-  <meta name="theme-color" content="#08110d">
-  <title>THIEGO ARAÚJO — Cybersecurity Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thiego Araújo — Cloud Security Engineer</title>
+<meta name="description" content="Thiego Araújo — Cloud Security Engineer. Microsoft Security, Cloud Security, IAM & Zero Trust. Portfolio, certifications, and experience.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0F1218;
+    --surface:#171B23;
+    --surface-2:#1E2430;
+    --line:#2A2F3B;
+    --text:#E8EAF0;
+    --text-muted:#8B93A6;
+    --accent:#C98A3B;
+    --accent-soft:rgba(201,138,59,0.12);
+    --accent-2:#4C7A9C;
+    --accent-2-soft:rgba(76,122,156,0.14);
+    --danger:#B3483F;
+    --danger-soft:rgba(179,72,63,0.14);
+    --radius:10px;
+    --maxw:1080px;
+    --font-display:'Space Grotesk', sans-serif;
+    --font-body:'Inter', sans-serif;
+    --font-mono:'JetBrains Mono', monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+  body{
+    margin:0;
+    background:var(--bg);
+    background-image:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(76,122,156,0.10), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 100% 0%, rgba(201,138,59,0.08), transparent 55%);
+    color:var(--text);
+    font-family:var(--font-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+  h1,h2,h3{font-family:var(--font-display); font-weight:600; margin:0; letter-spacing:-0.01em;}
+  .mono{font-family:var(--font-mono);}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:4px;}
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(15,18,24,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{max-width:var(--maxw); margin:0 auto; padding:16px 24px; display:flex; align-items:center; justify-content:space-between; gap:16px;}
+  .logo{font-family:var(--font-mono); font-weight:600; font-size:15px; letter-spacing:0.02em; color:var(--text); text-decoration:none;}
+  .logo span{color:var(--accent);}
+  nav.links{display:flex; gap:24px; flex-wrap:wrap;}
+  nav.links a{font-family:var(--font-mono); font-size:12.5px; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted); text-decoration:none; transition:color .15s ease;}
+  nav.links a:hover{color:var(--text);}
+  .nav-cta{display:none;}
+  @media (min-width:720px){ .nav-cta{display:inline-flex;} }
+  .btn{
+    font-family:var(--font-mono); font-size:12.5px; text-transform:uppercase; letter-spacing:0.05em;
+    padding:9px 16px; border-radius:6px; text-decoration:none; white-space:nowrap;
+    border:1px solid var(--line); transition:border-color .15s ease, background .15s ease, transform .1s ease;
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:var(--accent); color:#161006; border-color:var(--accent); font-weight:600;}
+  .btn-primary:hover{background:#DA9A46;}
+  .btn-ghost{color:var(--text); background:transparent;}
+  .btn-ghost:hover{border-color:var(--accent-2); background:var(--accent-2-soft);}
+
+  /* ---------- HERO / ALERT CARD ---------- */
+  .hero{padding:72px 0 56px;}
+  .eyebrow{font-family:var(--font-mono); font-size:12.5px; letter-spacing:0.12em; color:var(--accent-2); text-transform:uppercase; margin-bottom:18px; display:flex; align-items:center; gap:10px;}
+  .eyebrow .dot{width:7px; height:7px; border-radius:50%; background:#5FBF6E; box-shadow:0 0 0 3px rgba(95,191,110,0.18); animation:pulse 2.4s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.45;}}
+
+  .alert-card{
+    background:linear-gradient(180deg, var(--surface), var(--surface-2));
+    border:1px solid var(--line);
+    border-left:3px solid var(--accent);
+    border-radius:var(--radius);
+    padding:0;
+    overflow:hidden;
+  }
+  .alert-topbar{
+    display:flex; flex-wrap:wrap; gap:8px 22px; justify-content:space-between; align-items:center;
+    padding:12px 22px; border-bottom:1px solid var(--line); background:rgba(255,255,255,0.015);
+  }
+  .alert-topbar .field{font-family:var(--font-mono); font-size:11.5px; color:var(--text-muted); letter-spacing:0.03em;}
+  .alert-topbar .field b{color:var(--text); font-weight:500;}
+  .tag{
+    font-family:var(--font-mono); font-size:11px; letter-spacing:0.05em; text-transform:uppercase;
+    padding:3px 9px; border-radius:20px; border:1px solid var(--line);
+  }
+  .tag-status{color:#5FBF6E; border-color:rgba(95,191,110,0.35); background:rgba(95,191,110,0.08);}
+
+  .alert-body{padding:36px 28px 30px;}
+  .alert-body h1{font-size:clamp(30px,5vw,46px); line-height:1.08; margin-bottom:10px;}
+  .role-line{font-size:17px; color:var(--text); margin:0 0 6px; font-weight:500;}
+  .role-line .sep{color:var(--text-muted); margin:0 8px;}
+  .loc-line{font-family:var(--font-mono); font-size:13px; color:var(--text-muted); margin-bottom:24px;}
+  .hero-actions{display:flex; gap:12px; flex-wrap:wrap;}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:64px 0;}
+  section + section{border-top:1px solid var(--line);}
+  .section-head{margin-bottom:34px; max-width:640px;}
+  .section-head .eyebrow{margin-bottom:10px;}
+  .section-head h2{font-size:clamp(24px,3.4vw,32px);}
+  .section-head p{color:var(--text-muted); margin-top:10px; font-size:15px;}
+
+  .about-text p{color:#C7CCD8; font-size:16px; max-width:760px; margin:0 0 16px;}
+
+  /* Skills */
+  .grid{display:grid; gap:16px;}
+  .grid-3{grid-template-columns:repeat(3,1fr);}
+  .grid-2{grid-template-columns:repeat(2,1fr);}
+  @media (max-width:860px){ .grid-3{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:600px){ .grid-3, .grid-2{grid-template-columns:1fr;} }
+
+  .card{
+    position:relative;
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:20px 20px 18px;
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .card:hover{border-color:var(--accent-2); transform:translateY(-2px);}
+  .card-tag{
+    position:absolute; top:-10px; left:16px;
+    font-family:var(--font-mono); font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase;
+    background:var(--accent-2); color:#0F1218; padding:2px 8px; border-radius:4px; font-weight:600;
+  }
+  .card h3{font-size:16px; margin:8px 0 10px;}
+  .taglist{display:flex; flex-wrap:wrap; gap:7px;}
+  .chip{
+    font-family:var(--font-mono); font-size:12px; color:var(--text-muted);
+    background:var(--surface-2); border:1px solid var(--line); padding:4px 9px; border-radius:6px;
+  }
+
+  /* Experience timeline */
+  .timeline{position:relative; padding-left:28px;}
+  .timeline::before{content:"";position:absolute; left:6px; top:6px; bottom:6px; width:1px; background:var(--line);}
+  .tl-item{position:relative; padding-bottom:38px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-dot{position:absolute; left:-28px; top:4px; width:13px; height:13px; border-radius:50%; background:var(--surface); border:2px solid var(--accent-2);}
+  .tl-item.current .tl-dot{border-color:var(--accent); background:var(--accent);}
+  .tl-period{font-family:var(--font-mono); font-size:11.5px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.04em;}
+  .tl-role{font-size:18px; margin:5px 0 2px; font-family:var(--font-display); font-weight:600;}
+  .tl-company{color:var(--accent-2); font-size:14px; margin-bottom:12px;}
+  .tl-company .formal{color:var(--text-muted); font-family:var(--font-mono); font-size:12px;}
+  .tl-item ul{margin:0; padding-left:18px; color:#C7CCD8; font-size:14.5px;}
+  .tl-item li{margin-bottom:7px;}
+
+  /* Certifications */
+  .cert-card{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:18px 18px 16px; display:flex; flex-direction:column; gap:10px;}
+  .cert-top{display:flex; justify-content:space-between; align-items:flex-start; gap:10px;}
+  .cert-code{font-family:var(--font-mono); font-size:11px; color:#0F1218; background:var(--accent); padding:2px 8px; border-radius:4px; font-weight:600; white-space:nowrap;}
+  .cert-name{font-size:14.5px; font-weight:500; line-height:1.4;}
+  .cert-meta{font-family:var(--font-mono); font-size:11.5px; color:var(--text-muted); display:flex; justify-content:space-between; border-top:1px solid var(--line); padding-top:10px;}
+  .cert-meta a{color:var(--accent-2); text-decoration:none;}
+  .cert-meta a:hover{text-decoration:underline;}
+
+  /* Learning paths */
+  .path-row{display:flex; align-items:center; gap:14px; padding:14px 0; border-bottom:1px solid var(--line);}
+  .path-row:last-child{border-bottom:none;}
+  .path-idx{font-family:var(--font-mono); font-size:12px; color:var(--accent-2); width:34px; flex-shrink:0;}
+  .path-title{font-weight:500; font-size:14.5px;}
+  .path-issuer{font-family:var(--font-mono); font-size:12px; color:var(--text-muted); margin-top:2px;}
+
+  /* Projects */
+  .proj-card{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:22px; display:flex; flex-direction:column; gap:12px;}
+  .proj-card h3{font-size:17px;}
+  .proj-card p{color:var(--text-muted); font-size:14px; margin:0; flex-grow:1;}
+  .proj-link{font-family:var(--font-mono); font-size:12.5px; color:var(--accent); text-decoration:none;}
+  .proj-link:hover{text-decoration:underline;}
+  .proj-card.soon{opacity:0.55;}
+
+  /* Contact / footer */
+  footer{padding:56px 0 40px;}
+  .contact-grid{display:flex; flex-wrap:wrap; gap:14px;}
+  .contact-card{
+    flex:1 1 200px; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:18px; text-decoration:none; transition:border-color .15s ease;
+  }
+  .contact-card:hover{border-color:var(--accent);}
+  .contact-card .label{font-family:var(--font-mono); font-size:11px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em;}
+  .contact-card .value{margin-top:6px; font-size:14.5px; font-weight:500;}
+  .foot-bottom{margin-top:40px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-family:var(--font-mono); font-size:11.5px; color:var(--text-muted);}
+
+  .reveal{opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+</style>
 </head>
 <body>
-  <div class="noise"></div>
-  <header class="topbar">
-    <a class="brand" href="#top" aria-label="Back to top"><span>TA</span> / SECURITY</a>
-    <nav id="nav">
-      <a href="#about">ABOUT</a>
-      <a href="#certifications">CERTIFICATIONS</a>
-      <a href="#skills">SKILLS</a>
-      <a href="#projects">PROJECTS</a>
-      <a href="#contact">CONTACT</a>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="#top" class="logo">TA<span>//</span>SEC</a>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#certifications">Certs</a>
+      <a href="#learning">Learning</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
     </nav>
-    <button class="menu" id="menuBtn" aria-label="Open menu">☰</button>
-  </header>
+    <a href="assets/resume.pdf" class="btn btn-primary nav-cta" download>Résumé ↓</a>
+  </div>
+</header>
 
-  <main id="top">
-    <section class="hero section-grid">
-      <div class="hero-copy">
-        <p class="eyebrow">CYBERSECURITY / CLOUD SECURITY / INFRASTRUCTURE</p>
-        <h1>SECURITY<br><em>WITHOUT</em><br>SHORTCUTS.</h1>
-        <p class="lead">Technical portfolio focused on cybersecurity, cloud security, vulnerability management, CTEM, infrastructure and hands-on learning.</p>
-        <div class="actions">
-          <a class="btn primary" href="#certifications">VIEW CERTIFICATIONS <span>↘</span></a>
-          <a class="btn ghost" href="https://www.linkedin.com/" target="_blank" rel="noopener">LINKEDIN ↗</a>
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow"><span class="dot"></span>Available for remote engagements — worldwide</div>
+      <div class="alert-card">
+        <div class="alert-topbar">
+          <span class="field mono">ID: <b>TA-SEC-0001</b></span>
+          <span class="field mono">SEVERITY: <b>Priority hire</b></span>
+          <span class="tag tag-status">STATUS · OPEN</span>
         </div>
-      </div>
-      <div class="hero-terminal">
-        <div class="terminal-head"><span></span><span></span><span></span><code>profile.sh</code></div>
-        <pre><span class="muted">$ whoami</span>
-thiego@security:~$ <b>analyst</b>
-
-<span class="muted">$ focus --current</span>
-Cybersecurity
-Cloud Security
-Vulnerability Management
-CTEM / Attack Surface
-Kubernetes / Linux
-
-<span class="muted">$ status</span>
-<span class="ok">● OPEN TO OPPORTUNITIES</span></pre>
-      </div>
-    </section>
-
-    <section class="metrics">
-      <div><strong id="certCount">30+</strong><span>CERTIFICATIONS<br>& TRAINING</span></div>
-      <div><strong>10+</strong><span>SECURITY<br>DOMAINS</span></div>
-      <div><strong>20+</strong><span>TECHNOLOGIES<br>& TOOLS</span></div>
-      <div><strong>∞</strong><span>HOURS OF<br>LABS & STUDY</span></div>
-    </section>
-
-    <section id="about" class="section split">
-      <div class="section-label">01 / ABOUT</div>
-      <div>
-        <p class="kicker">TECHNICAL MINDSET</p>
-        <h2>BUILD.<br>TEST.<br>SECURE.</h2>
-        <p class="body-copy">I use this space to document my technical development in cybersecurity and cloud. The goal is simple: make learning visible through verifiable certifications, practical projects, labs and technical notes.</p>
-        <div class="tags">
-          <span>CYBERSECURITY</span><span>CLOUD</span><span>CTEM</span><span>VULNERABILITY MANAGEMENT</span><span>LINUX</span><span>KUBERNETES</span>
-        </div>
-      </div>
-    </section>
-
-    <section id="certifications" class="section">
-      <div class="section-label">02 / CERTIFICATIONS</div>
-      <div class="section-content">
-        <div class="section-heading">
-          <div>
-            <p class="kicker">VERIFIABLE CREDENTIALS</p>
-            <h2>CREDENTIAL<br>WALL.</h2>
-          </div>
-          <p class="small-note">Replace the sample cards below with your real certificates and official verification links.</p>
-        </div>
-
-        <div class="filters" id="filters">
-          <button class="filter active" data-filter="all">ALL</button>
-          <button class="filter" data-filter="cybersecurity">CYBERSECURITY</button>
-          <button class="filter" data-filter="cloud">CLOUD</button>
-          <button class="filter" data-filter="infrastructure">INFRASTRUCTURE</button>
-          <button class="filter" data-filter="other">OTHER</button>
-        </div>
-
-        <div class="cards" id="certCards">
-          <article class="card" data-category="cybersecurity">
-            <div class="card-top"><span>01</span><span>CYBERSECURITY</span></div>
-            <h3>Security Certification</h3>
-            <p>Vendor / Institution</p>
-            <div class="card-meta"><span>2026</span><a href="#" class="verify">VERIFY ↗</a></div>
-          </article>
-          <article class="card" data-category="cloud">
-            <div class="card-top"><span>02</span><span>CLOUD</span></div>
-            <h3>Cloud Security Training</h3>
-            <p>Vendor / Institution</p>
-            <div class="card-meta"><span>2026</span><a href="#" class="verify">VERIFY ↗</a></div>
-          </article>
-          <article class="card" data-category="infrastructure">
-            <div class="card-top"><span>03</span><span>INFRASTRUCTURE</span></div>
-            <h3>Kubernetes / Linux</h3>
-            <p>Vendor / Institution</p>
-            <div class="card-meta"><span>2026</span><a href="#" class="verify">VERIFY ↗</a></div>
-          </article>
-          <article class="card" data-category="cybersecurity">
-            <div class="card-top"><span>04</span><span>CYBERSECURITY</span></div>
-            <h3>Vulnerability Management</h3>
-            <p>Vendor / Institution</p>
-            <div class="card-meta"><span>2026</span><a href="#" class="verify">VERIFY ↗</a></div>
-          </article>
-          <article class="card" data-category="cloud">
-            <div class="card-top"><span>05</span><span>CLOUD</span></div>
-            <h3>Microsoft / Azure</h3>
-            <p>Vendor / Institution</p>
-            <div class="card-meta"><span>2026</span><a href="#" class="verify">VERIFY ↗</a></div>
-          </article>
-          <article class="card" data-category="other">
-            <div class="card-top"><span>06</span><span>OTHER</span></div>
-            <h3>Technical Training</h3>
-            <p>Vendor / Institution</p>
-            <div class="card-meta"><span>2026</span><a href="#" class="verify">VERIFY ↗</a></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills" class="section split dark-section">
-      <div class="section-label">03 / SKILLS</div>
-      <div>
-        <p class="kicker">TECH STACK</p>
-        <h2>TOOLS I<br>WORK WITH.</h2>
-        <div class="skill-grid">
-          <div><b>SECURITY</b><span>Threat Intelligence</span><span>Vulnerability Management</span><span>CTEM / ASM</span><span>EDR / XDR</span></div>
-          <div><b>CLOUD</b><span>Microsoft Azure</span><span>AWS</span><span>Cloud Security</span><span>Microsoft 365</span></div>
-          <div><b>INFRA</b><span>Linux</span><span>Kubernetes</span><span>Docker</span><span>Networking</span></div>
-          <div><b>TOOLS</b><span>Trend Vision One</span><span>Microsoft Security</span><span>Palo Alto</span><span>Proofpoint</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="section">
-      <div class="section-label">04 / PROJECTS</div>
-      <div class="section-content">
-        <div class="section-heading">
-          <div>
-            <p class="kicker">PRACTICAL WORK</p>
-            <h2>LABS &<br>PROJECTS.</h2>
+        <div class="alert-body">
+          <h1>Thiego Araújo</h1>
+          <p class="role-line">Cloud Security Engineer<span class="sep">·</span>Microsoft Security<span class="sep">·</span>IAM &amp; Zero Trust</p>
+          <p class="loc-line mono">Fortaleza, Brazil — Remote (Worldwide)</p>
+          <div class="hero-actions">
+            <a href="#certifications" class="btn btn-ghost">View certifications</a>
+            <a href="assets/resume.pdf" class="btn btn-ghost" download>Download résumé</a>
+            <a href="#contact" class="btn btn-primary">Contact</a>
           </div>
         </div>
-        <div class="project-list">
-          <a href="#" class="project"><span>01</span><div><b>Attack Surface / CTEM</b><small>Asset discovery · prioritization · remediation</small></div><strong>↗</strong></a>
-          <a href="#" class="project"><span>02</span><div><b>Cloud Security Lab</b><small>Cloud posture · identity · exposure analysis</small></div><strong>↗</strong></a>
-          <a href="#" class="project"><span>03</span><div><b>Kubernetes Security</b><small>Containers · nodes · agents · hardening</small></div><strong>↗</strong></a>
-        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="cta">
-      <p class="kicker">KEEP IN TOUCH</p>
-      <h2>LET'S TALK<br>SECURITY.</h2>
-      <div class="actions">
-        <a class="btn primary" href="https://www.linkedin.com/" target="_blank" rel="noopener">LINKEDIN ↗</a>
-        <a class="btn ghost" href="https://github.com/" target="_blank" rel="noopener">GITHUB ↗</a>
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">01 · Profile</div>
+        <h2>From infrastructure to Microsoft Security.</h2>
       </div>
-    </section>
+      <div class="about-text reveal">
+        <p>I started my career in IT infrastructure — servers, virtualization, networking, backup — supporting critical corporate environments, including hospitals and educational institutions. That hands-on understanding of how systems actually work underneath is what shapes my approach to security today.</p>
+        <p>I'm currently responsible for the architecture, deployment, and operation of a full Microsoft security environment — Defender XDR, Sentinel, Entra ID, and Purview — complemented by Prisma Cloud, Proofpoint, Cylance, and Picus Security. I work at the intersection of infrastructure, identity, and incident response, across Azure, AWS, and hybrid environments.</p>
+      </div>
+    </div>
+  </section>
 
-    <section id="contact" class="footer-contact">
-      <div><span class="brand"><span>TA</span> / SECURITY</span><p>Cybersecurity · Cloud · Infrastructure</p></div>
-      <div class="links"><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LINKEDIN</a><a href="https://github.com/" target="_blank" rel="noopener">GITHUB</a><a href="mailto:your@email.com">EMAIL</a></div>
-    </section>
-  </main>
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">02 · Coverage</div>
+        <h2>Technical stack</h2>
+        <p>Grouped by the domain each tool covers in a real security operation.</p>
+      </div>
+      <div class="grid grid-3" id="skillsGrid"></div>
+    </div>
+  </section>
 
-  <footer>© <span id="year"></span> THIEGO ARAÚJO · BUILT FOR GITHUB PAGES</footer>
-  <script src="script.js"></script>
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">03 · Timeline</div>
+        <h2>Experience</h2>
+      </div>
+      <div class="timeline" id="timeline"></div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">04 · Credentials</div>
+        <h2>Certifications</h2>
+        <p>Update the year and credential link for each item in <code class="mono">assets/script.js</code> before publishing.</p>
+      </div>
+      <div class="grid grid-3" id="certGrid"></div>
+    </div>
+  </section>
+
+  <section id="learning">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">05 · Learning paths</div>
+        <h2>Courses &amp; tracks completed</h2>
+        <p>Add every course or track you finish — this list is meant to keep growing.</p>
+      </div>
+      <div id="pathsList"></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">06 · Proof of work</div>
+        <h2>Projects</h2>
+        <p>Hands-on work published on GitHub — detection logic, automation, and reference architectures.</p>
+      </div>
+      <div class="grid grid-3" id="projectsGrid"></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">07 · Reach out</div>
+        <h2>Let's talk</h2>
+      </div>
+      <div class="contact-grid reveal">
+        <a class="contact-card" href="https://www.linkedin.com/in/thiegoaraujo" target="_blank" rel="noopener">
+          <div class="label mono">LinkedIn</div>
+          <div class="value">linkedin.com/in/thiegoaraujo</div>
+        </a>
+        <a class="contact-card" href="https://github.com/YOUR-GITHUB-USERNAME" target="_blank" rel="noopener">
+          <div class="label mono">GitHub</div>
+          <div class="value">github.com/YOUR-GITHUB-USERNAME</div>
+        </a>
+        <a class="contact-card" href="mailto:thiego.info@gmail.com">
+          <div class="label mono">Email</div>
+          <div class="value">thiego.info@gmail.com</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-bottom">
+        <span>© <span id="year"></span> Thiego Araújo — Cloud Security Engineer</span>
+        <span>Built as a static page · edit freely</span>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<script src="assets/script.js"></script>
 </body>
 </html>
