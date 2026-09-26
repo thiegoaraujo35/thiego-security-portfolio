@@ -1,382 +1,223 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thiego Araújo — Cloud Security Engineer</title>
-<meta name="description" content="Thiego Araújo — Cloud Security Engineer. Microsoft Security, Cloud Security, IAM & Zero Trust. Portfólio, certificações e experiência.">
+<title>Thiego Araújo — Cloud Security Analyst</title>
+<meta name="description" content="Thiego Araújo — Cloud Security Analyst. Cyber Security, Microsoft Azure, Vulnerability Management and Security Operations.">
+<meta property="og:title" content="Thiego Araújo — Cloud Security Analyst">
+<meta property="og:description" content="Cyber Security, Cloud Security, Microsoft Azure, Vulnerability Management, Security Operations.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230a0c10%22/><path d=%22M50 18 L78 30 V52 C78 70 66 82 50 88 C34 82 22 70 22 52 V30 Z%22 fill=%22none%22 stroke=%22%23ff6a3d%22 stroke-width=%226%22/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#0A0B0D;
-    --surface:#141619;
-    --surface-2:#1C1F25;
-    --line:#272B32;
-    --text:#F2F3F5;
-    --text-muted:#9AA0AC;
-    --accent:#E1531F;
-    --accent-soft:rgba(225,83,31,0.12);
-    --accent-2:#5B6472;
-    --accent-2-soft:rgba(91,100,114,0.16);
-    --maxw:1140px;
-    --font-display:'Anton', sans-serif;
-    --font-body:'Inter', sans-serif;
-    --font-mono:'JetBrains Mono', monospace;
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  @media (prefers-reduced-motion: reduce){ *{animation-duration:.001ms !important; transition-duration:.001ms !important; scroll-behavior:auto !important;} }
-  body{
-    margin:0; background:var(--bg); color:var(--text); font-family:var(--font-body);
-    line-height:1.6; -webkit-font-smoothing:antialiased;
-    background-image:
-      linear-gradient(180deg, rgba(225,83,31,0.05), transparent 340px),
-      radial-gradient(1000px 500px at 100% 0%, rgba(91,100,114,0.10), transparent 60%);
-  }
-  a{color:inherit;}
-  :focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
-  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
-  .mono{font-family:var(--font-mono);}
-  em{font-style:italic; color:var(--accent);}
-
-  /* ---------- NAV ---------- */
-  header.nav{position:sticky; top:0; z-index:50; background:rgba(10,11,13,0.88); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
-  .nav-inner{max-width:var(--maxw); margin:0 auto; padding:16px 24px; display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap;}
-  .wordmark{font-family:var(--font-display); font-size:20px; letter-spacing:0.01em; text-decoration:none; color:var(--text);}
-  .wordmark em{font-style:normal;}
-  .chips{display:flex; gap:8px; flex-wrap:wrap;}
-  .chip-link{
-    font-family:var(--font-mono); font-size:11.5px; letter-spacing:0.06em; text-transform:uppercase;
-    color:var(--text-muted); text-decoration:none; padding:7px 13px; border-radius:999px; border:1px solid transparent;
-    transition:all .15s ease;
-  }
-  .chip-link:hover{color:var(--text); border-color:var(--line); background:var(--surface);}
-  .nav-actions{display:flex; gap:10px;}
-  .btn{
-    font-family:var(--font-mono); font-size:11.5px; text-transform:uppercase; letter-spacing:0.05em;
-    padding:10px 16px; border-radius:6px; text-decoration:none; white-space:nowrap; font-weight:600;
-    border:1px solid var(--line); transition:all .15s ease; display:inline-flex; align-items:center; gap:8px;
-  }
-  .btn-primary{background:var(--accent); color:#160800; border-color:var(--accent);}
-  .btn-primary:hover{filter:brightness(1.1); transform:translateY(-1px);}
-  .btn-ghost{color:var(--text); background:transparent;}
-  .btn-ghost:hover{border-color:var(--accent); color:var(--accent);}
-
-  /* ---------- HERO ---------- */
-  .hero{padding:88px 0 40px;}
-  .eyebrow{font-family:var(--font-mono); font-size:12px; letter-spacing:0.14em; color:var(--accent); text-transform:uppercase; margin-bottom:22px; display:flex; align-items:center; gap:10px;}
-  .eyebrow::before{content:"//"; color:var(--accent-2);}
-  h1.headline{
-    font-family:var(--font-display); text-transform:uppercase; font-weight:400;
-    font-size:clamp(40px, 7.4vw, 92px); line-height:0.98; letter-spacing:0.005em; margin:0 0 26px; max-width:920px;
-  }
-  .sub{font-size:17px; color:var(--text-muted); max-width:620px; margin:0 0 34px;}
-  .hero-actions{display:flex; gap:12px; flex-wrap:wrap; margin-bottom:64px;}
-
-  .stats-row{display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
-  .stat{padding:26px 22px; border-right:1px solid var(--line);}
-  .stat:last-child{border-right:none;}
-  .stat .num{font-family:var(--font-display); font-size:clamp(28px,4vw,44px); color:var(--text); line-height:1;}
-  .stat .lbl{font-family:var(--font-mono); font-size:11px; letter-spacing:0.05em; text-transform:uppercase; color:var(--text-muted); margin-top:8px;}
-  @media (max-width:680px){ .stats-row{grid-template-columns:1fr;} .stat{border-right:none; border-bottom:1px solid var(--line);} .stat:last-child{border-bottom:none;} }
-
-  /* ---------- FEATURED CARD ---------- */
-  .featured-wrap{padding:56px 0;}
-  .featured{
-    background:linear-gradient(160deg, var(--surface), var(--surface-2));
-    border:1px solid var(--line); border-radius:14px; padding:34px; position:relative; overflow:hidden;
-  }
-  .featured::before{content:""; position:absolute; top:-40%; right:-10%; width:420px; height:420px; background:radial-gradient(circle, var(--accent-soft), transparent 65%); pointer-events:none;}
-  .featured-eyebrow{font-family:var(--font-mono); font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent-2); margin-bottom:10px;}
-  .featured h3{font-family:var(--font-display); font-weight:400; text-transform:uppercase; font-size:clamp(22px,3vw,32px); margin:0 0 6px;}
-  .featured .role-sub{color:var(--text-muted); font-size:14px; margin-bottom:26px;}
-  .steps{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:26px;}
-  .step{display:flex; align-items:center; gap:8px; background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:9px 14px;}
-  .step .n{font-family:var(--font-mono); font-size:11px; color:var(--accent);}
-  .step .t{font-size:12.5px; font-weight:600;}
-  .featured-stats{display:flex; gap:26px; flex-wrap:wrap;}
-  .fstat{font-family:var(--font-mono); font-size:12px; color:var(--text-muted);}
-  .fstat b{color:var(--text); font-size:15px; font-family:var(--font-body);}
-
-  /* ---------- SECTIONS ---------- */
-  section.numbered{padding:70px 0; border-top:1px solid var(--line);}
-  .sec-head{display:flex; gap:22px; align-items:flex-start; margin-bottom:38px;}
-  .sec-num{font-family:var(--font-display); font-size:56px; color:transparent; -webkit-text-stroke:1.5px var(--line); line-height:1; flex-shrink:0;}
-  .sec-title-group{max-width:640px;}
-  .sec-eyebrow{font-family:var(--font-mono); font-size:11.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent-2); margin-bottom:8px;}
-  h2.sec-title{font-family:var(--font-display); font-weight:400; text-transform:uppercase; font-size:clamp(26px,3.6vw,40px); margin:0; line-height:1.02;}
-  .sec-p{color:var(--text-muted); margin-top:12px; font-size:15px; max-width:560px;}
-
-  .about-text p{color:#CDD1D8; font-size:16px; max-width:740px; margin:0 0 16px;}
-
-  .grid{display:grid; gap:16px;}
-  .grid-3{grid-template-columns:repeat(3,1fr);}
-  @media (max-width:900px){ .grid-3{grid-template-columns:repeat(2,1fr);} }
-  @media (max-width:600px){ .grid-3{grid-template-columns:1fr;} }
-  @media (max-width:760px){ #eduLangGrid{grid-template-columns:1fr !important;} }
-
-  .edu-item{padding:12px 0; border-bottom:1px solid var(--line);}
-  .edu-item:last-child{border-bottom:none;}
-  .edu-item .deg{font-size:14.5px; font-weight:600;}
-  .edu-item .inst{font-family:var(--font-mono); font-size:11.5px; color:var(--text-muted); margin-top:3px;}
-  .lang-item{display:flex; justify-content:space-between; padding:12px 0; border-bottom:1px solid var(--line); font-size:14.5px;}
-  .lang-item:last-child{border-bottom:none;}
-  .lang-item .lvl{color:var(--text-muted); font-family:var(--font-mono); font-size:12px;}
-
-  .card{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:22px; transition:border-color .15s ease, transform .15s ease;}
-  .card:hover{border-color:var(--accent); transform:translateY(-2px);}
-  .card .card-tag{font-family:var(--font-mono); font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); display:block; margin-bottom:10px;}
-  .card h3{font-size:16px; margin:0 0 12px; font-weight:700;}
-  .taglist{display:flex; flex-wrap:wrap; gap:7px;}
-  .chip{font-family:var(--font-mono); font-size:11.5px; color:var(--text-muted); background:var(--surface-2); border:1px solid var(--line); padding:4px 9px; border-radius:6px;}
-
-  /* timeline */
-  .timeline{position:relative; padding-left:30px;}
-  .timeline::before{content:""; position:absolute; left:6px; top:6px; bottom:6px; width:1px; background:var(--line);}
-  .tl-item{position:relative; padding-bottom:36px;}
-  .tl-item:last-child{padding-bottom:0;}
-  .tl-dot{position:absolute; left:-30px; top:4px; width:13px; height:13px; border-radius:50%; background:var(--surface); border:2px solid var(--accent-2);}
-  .tl-item.current .tl-dot{border-color:var(--accent); background:var(--accent);}
-  .tl-period{font-family:var(--font-mono); font-size:11.5px; color:var(--text-muted); text-transform:uppercase;}
-  .tl-role{font-family:var(--font-display); font-weight:400; text-transform:uppercase; font-size:19px; margin:6px 0 2px;}
-  .tl-company{color:var(--accent); font-size:13.5px; margin-bottom:12px; font-weight:600;}
-  .tl-company .formal{color:var(--text-muted); font-family:var(--font-mono); font-size:11.5px; font-weight:400;}
-  .tl-item ul{margin:0; padding-left:18px; color:#CDD1D8; font-size:14.5px;}
-  .tl-item li{margin-bottom:7px;}
-
-  /* certifications */
-  .cert-stat-row{font-family:var(--font-mono); font-size:12.5px; color:var(--text-muted); margin-bottom:26px; letter-spacing:0.03em;}
-  .cert-stat-row b{color:var(--accent);}
-  .cert-card{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:18px; display:flex; flex-direction:column; gap:10px;}
-  .cert-top{display:flex; justify-content:space-between; gap:10px;}
-  .cert-code{font-family:var(--font-mono); font-size:11px; background:var(--accent); color:#160800; padding:2px 8px; border-radius:4px; font-weight:700; white-space:nowrap; height:fit-content;}
-  .cert-name{font-size:14px; font-weight:600; line-height:1.4;}
-  .cert-meta{font-family:var(--font-mono); font-size:11px; color:var(--text-muted); border-top:1px solid var(--line); padding-top:10px; display:flex; justify-content:space-between;}
-  .cert-meta a{color:var(--accent); text-decoration:none;}
-
-  /* projects */
-  .proj-card{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:22px; display:flex; flex-direction:column; gap:12px;}
-  .proj-card h3{font-family:var(--font-display); font-weight:400; text-transform:uppercase; font-size:18px; margin:0;}
-  .proj-card p{color:var(--text-muted); font-size:14px; margin:0; flex-grow:1;}
-  .proj-link{font-family:var(--font-mono); font-size:12px; color:var(--accent); text-decoration:none; font-weight:600;}
-  .proj-card.soon{opacity:0.55;}
-
-  /* CTA panel */
-  .cta-panel{padding:70px 0;}
-  .cta-box{
-    background:linear-gradient(135deg, var(--surface-2), var(--surface)); border:1px solid var(--line); border-radius:16px;
-    padding:56px 40px; text-align:center; position:relative; overflow:hidden;
-  }
-  .cta-box::before{content:""; position:absolute; inset:0; background:radial-gradient(600px 300px at 50% 0%, var(--accent-soft), transparent 70%); pointer-events:none;}
-  .cta-box h2{font-family:var(--font-display); font-weight:400; text-transform:uppercase; font-size:clamp(30px,5vw,54px); margin:0 0 16px;}
-  .cta-box p{color:var(--text-muted); max-width:480px; margin:0 auto 30px;}
-  .cta-actions{display:flex; gap:12px; justify-content:center; flex-wrap:wrap;}
-
-  footer{padding:50px 0 34px; border-top:1px solid var(--line);}
-  .foot-top{display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:24px; margin-bottom:30px;}
-  .foot-tagline{color:var(--text-muted); font-size:14px; max-width:360px;}
-  .foot-links{display:flex; gap:18px; flex-wrap:wrap;}
-  .foot-links a{font-family:var(--font-mono); font-size:11.5px; text-transform:uppercase; letter-spacing:0.05em; color:var(--text-muted); text-decoration:none;}
-  .foot-links a:hover{color:var(--accent);}
-  .foot-bottom{font-family:var(--font-mono); font-size:11.5px; color:var(--text-muted); border-top:1px solid var(--line); padding-top:22px;}
-
-  .reveal{opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease;}
-  .reveal.in{opacity:1; transform:translateY(0);}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-<header class="nav">
-  <div class="nav-inner">
-    <a href="#top" class="wordmark">THIEGO<em>//</em>SEC</a>
-    <nav class="chips">
-      <a class="chip-link" href="#sobre">Sobre</a>
-      <a class="chip-link" href="#stack">Stack</a>
-      <a class="chip-link" href="#experiencia">Experiência</a>
-      <a class="chip-link" href="#certificacoes">Certificações</a>
-      <a class="chip-link" href="#formacao">Formação</a>
-      <a class="chip-link" href="#projetos">Projetos</a>
-      <a class="chip-link" href="#contato">Contato</a>
-    </nav>
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <a href="#top" class="brand"><span class="brand-mark">TA</span><span id="brand-name">Thiego Araújo</span></a>
+    <div class="nav-links" id="navLinks"></div>
     <div class="nav-actions">
-      <a class="btn btn-ghost" href="https://github.com/YOUR-GITHUB-USERNAME" target="_blank" rel="noopener">Github ↗</a>
-      <a class="btn btn-primary" href="assets/resume.pdf" download>Currículo ↓</a>
+      <div class="lang-toggle">
+        <button data-lang-btn="en" class="active">EN</button>
+        <button data-lang-btn="pt">PT</button>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
     </div>
   </div>
-</header>
+</nav>
 
 <main id="top">
+
+  <!-- HERO -->
   <section class="hero">
-    <div class="wrap">
-      <div class="eyebrow reveal">Cloud Security Engineer · Disponível para remoto</div>
-      <h1 class="headline reveal">Eu protejo o que você <em>não vê.</em></h1>
-      <p class="sub reveal">Arquitetura, implantação e operação de ambientes de segurança Microsoft — Defender XDR, Sentinel, Entra ID, Purview — combinadas com Cloud Security em Azure, AWS e ambientes híbridos.</p>
-      <div class="hero-actions reveal">
-        <a class="btn btn-primary" href="#certificacoes">Ver certificações ↓</a>
-        <a class="btn btn-ghost" href="assets/resume.pdf" download>Baixar currículo ↗</a>
-        <a class="btn btn-ghost" href="#contato">Falar comigo ↗</a>
+    <div class="container">
+      <div>
+        <div class="pill hero-kicker" id="hero-kicker"></div>
+        <h1 id="hero-headline"></h1>
+        <p class="subhead" id="hero-subhead"></p>
+        <div class="tag-row" id="hero-tags"></div>
+        <div class="cta-row">
+          <a href="#projects" class="btn btn-primary" id="cta-projects"></a>
+          <a href="#certifications" class="btn btn-ghost" id="cta-certifications"></a>
+          <a href="#" class="btn btn-ghost" id="cta-resume" target="_blank" rel="noopener"></a>
+        </div>
+        <div class="social-row">
+          <a href="#" id="link-linkedin" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+          <a href="#" id="link-github" target="_blank" rel="noopener" aria-label="GitHub">gh</a>
+          <a href="#" id="link-email" aria-label="Email">@</a>
+        </div>
       </div>
-    </div>
-    <div class="wrap">
-      <div class="stats-row reveal">
-        <div class="stat"><div class="num">13+</div><div class="lbl">Anos em TI &amp; Segurança</div></div>
-        <div class="stat"><div class="num">11</div><div class="lbl">Certificações Microsoft &amp; VMware</div></div>
-        <div class="stat"><div class="num">6</div><div class="lbl">Domínios de segurança operados</div></div>
+
+      <div class="feed-panel reveal">
+        <div class="feed-head">
+          <div class="feed-title"><span class="live-dot"></span><span id="feed-label"></span></div>
+          <span class="demo-badge" id="feed-demo"></span>
+        </div>
+        <div id="feed-items"></div>
       </div>
     </div>
   </section>
 
-  <section class="featured-wrap">
-    <div class="wrap">
-      <div class="featured reveal">
-        <div class="featured-eyebrow">Cargo atual em destaque</div>
-        <h3>TrustControl — Cloud Security Engineer</h3>
-        <p class="role-sub">Nov 2022 — Presente · Fortaleza, BR (formal: Analista de Segurança em Cloud)</p>
-        <div class="steps">
-          <div class="step"><span class="n">01</span><span class="t">Defender XDR</span></div>
-          <div class="step"><span class="n">02</span><span class="t">Sentinel</span></div>
-          <div class="step"><span class="n">03</span><span class="t">Entra ID</span></div>
-          <div class="step"><span class="n">04</span><span class="t">Purview</span></div>
-        </div>
-        <div class="featured-stats">
-          <div class="fstat"><b>9</b> ferramentas de segurança operadas</div>
-          <div class="fstat"><b>3+ anos</b> na função</div>
-        </div>
+  <!-- STATS -->
+  <section class="stats-strip" style="padding:0">
+    <div class="container" id="stats-strip"></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container about-grid">
+      <div class="section-head" style="margin-bottom:0">
+        <div class="section-kicker"><span class="dot"></span><span id="about-kicker"></span></div>
+        <h2 id="about-heading"></h2>
       </div>
+      <div id="about-body"></div>
     </div>
   </section>
 
-  <section id="sobre" class="numbered">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <span class="sec-num">01</span>
-        <div class="sec-title-group">
-          <div class="sec-eyebrow">Perfil</div>
-          <h2 class="sec-title">Da infraestrutura <em>à segurança.</em></h2>
-        </div>
+  <!-- SPECIALTIES -->
+  <section id="specialties">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-kicker"><span class="dot"></span><span id="spec-kicker"></span></div>
+        <h2 id="spec-heading"></h2>
       </div>
-      <div class="about-text reveal">
-        <p>Comecei minha carreira em infraestrutura de TI — servidores, virtualização, redes, backup — sustentando ambientes corporativos críticos, incluindo hospitais e instituições de ensino. Essa base prática de como as coisas realmente funcionam por baixo é o que diferencia minha atuação em segurança hoje.</p>
-        <p>Atualmente sou responsável pela arquitetura, implantação e operação de um ambiente de segurança Microsoft completo — Defender XDR, Sentinel, Entra ID e Purview — complementado por Prisma Cloud, Proofpoint, Cylance e Picus Security. Atuo na interseção entre infraestrutura, identidade e resposta a incidentes, em Azure, AWS e ambientes híbridos.</p>
-      </div>
+      <div class="grid-cards" id="spec-grid"></div>
     </div>
   </section>
 
-  <section id="stack" class="numbered">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <span class="sec-num">02</span>
-        <div class="sec-title-group">
-          <div class="sec-eyebrow">Cobertura técnica</div>
-          <h2 class="sec-title">Stack <em>técnico.</em></h2>
-          <p class="sec-p">Ferramentas agrupadas pelo domínio real que cada uma cobre em operação.</p>
-        </div>
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-kicker"><span class="dot"></span><span id="cert-kicker"></span></div>
+        <h2 id="cert-heading"></h2>
       </div>
-      <div class="grid grid-3" id="skillsGrid"></div>
+      <div class="filter-row" id="cert-filters"></div>
+      <div class="cert-grid" id="cert-grid"></div>
     </div>
   </section>
 
-  <section id="experiencia" class="numbered">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <span class="sec-num">03</span>
-        <div class="sec-title-group">
-          <div class="sec-eyebrow">Trajetória</div>
-          <h2 class="sec-title">Experiência.</h2>
-        </div>
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-kicker"><span class="dot"></span><span id="proj-kicker"></span></div>
+        <h2 id="proj-heading"></h2>
+        <p id="proj-sub"></p>
       </div>
-      <div class="timeline" id="timeline"></div>
+      <div class="grid-projects" id="proj-grid"></div>
     </div>
   </section>
 
-  <section id="certificacoes" class="numbered">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <span class="sec-num">04</span>
-        <div class="sec-title-group">
-          <div class="sec-eyebrow">Credenciais</div>
-          <h2 class="sec-title">Certificações.</h2>
-        </div>
+  <!-- CTEM METHODOLOGY -->
+  <section id="ctem">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-kicker"><span class="dot"></span><span id="ctem-kicker"></span></div>
+        <h2 id="ctem-heading"></h2>
+        <p id="ctem-sub"></p>
       </div>
-      <div class="cert-stat-row reveal"><b id="certCount">0</b> credenciais · Microsoft &amp; VMware</div>
-      <div class="grid grid-3" id="certGrid"></div>
+      <div class="ctem-flow" id="ctem-flow"></div>
     </div>
   </section>
 
-  <section id="formacao" class="numbered">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <span class="sec-num">05</span>
-        <div class="sec-title-group">
-          <div class="sec-eyebrow">Base acadêmica</div>
-          <h2 class="sec-title">Formação <em>& idiomas.</em></h2>
-        </div>
+  <!-- LABS -->
+  <section id="labs">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-kicker"><span class="dot"></span><span id="labs-kicker"></span></div>
+        <h2 id="labs-heading"></h2>
       </div>
-      <div class="grid" style="grid-template-columns:1.4fr 1fr;" id="eduLangGrid">
-        <div class="card reveal">
-          <span class="card-tag">Formação Acadêmica</span>
-          <div id="eduList"></div>
-        </div>
-        <div class="card reveal">
-          <span class="card-tag">Idiomas</span>
-          <div id="langList"></div>
-        </div>
-      </div>
+      <div class="grid-labs" id="labs-grid"></div>
     </div>
   </section>
 
-  <section id="projetos" class="numbered">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <span class="sec-num">06</span>
-        <div class="sec-title-group">
-          <div class="sec-eyebrow">Prova de trabalho</div>
-          <h2 class="sec-title">Projetos.</h2>
-          <p class="sec-p">Trabalho publicado no GitHub — lógica de detecção, automação e arquiteturas de referência.</p>
-        </div>
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-kicker"><span class="dot"></span><span id="exp-kicker"></span></div>
+        <h2 id="exp-heading"></h2>
       </div>
-      <div class="grid grid-3" id="projectsGrid"></div>
+      <div class="timeline" id="exp-timeline"></div>
     </div>
   </section>
 
-  <section id="contato" class="cta-panel">
-    <div class="wrap">
-      <div class="cta-box reveal">
-        <h2>Vamos conversar.</h2>
-        <p>Aberto a oportunidades remotas em Cloud Security Engineering e Microsoft Security — Brasil ou internacional.</p>
-        <div class="cta-actions">
-          <a class="btn btn-primary" href="mailto:thiego.info@gmail.com">Enviar e-mail</a>
-          <a class="btn btn-ghost" href="https://www.linkedin.com/in/thiegoaraujo" target="_blank" rel="noopener">LinkedIn ↗</a>
-          <a class="btn btn-ghost" href="https://github.com/YOUR-GITHUB-USERNAME" target="_blank" rel="noopener">GitHub ↗</a>
-        </div>
+  <!-- STACK -->
+  <section id="stack">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-kicker"><span class="dot"></span><span id="stack-kicker"></span></div>
+        <h2 id="stack-heading"></h2>
       </div>
+      <div class="stack-groups" id="stack-groups"></div>
     </div>
   </section>
+
+  <!-- SECURITY DASHBOARD -->
+  <section id="dashboard">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-kicker"><span class="dot"></span><span id="dash-kicker"></span></div>
+        <h2 id="dash-heading"></h2>
+        <p id="dash-sub"></p>
+      </div>
+      <div class="dash-list" id="dash-list"></div>
+      <div class="dash-legend" id="dash-legend"></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container contact-grid">
+      <div>
+        <div class="section-head">
+          <div class="section-kicker"><span class="dot"></span><span id="contact-kicker"></span></div>
+          <h2 id="contact-heading"></h2>
+          <p id="contact-sub"></p>
+        </div>
+        <div class="contact-links" id="contact-links"></div>
+      </div>
+      <form id="contact-form">
+        <div class="form-field"><label id="lbl-name"></label><input type="text" name="name" required></div>
+        <div class="form-field"><label id="lbl-email"></label><input type="email" name="email" required></div>
+        <div class="form-field"><label id="lbl-company"></label><input type="text" name="company"></div>
+        <div class="form-field"><label id="lbl-subject"></label><input type="text" name="subject" required></div>
+        <div class="form-field"><label id="lbl-message"></label><textarea name="message" rows="5" required></textarea></div>
+        <button type="submit" class="btn btn-primary" id="btn-send" style="width:100%"></button>
+      </form>
+    </div>
+  </section>
+
 </main>
 
 <footer>
-  <div class="wrap">
-    <div class="foot-top">
-      <div>
-        <a href="#top" class="wordmark">THIEGO<em>//</em>SEC</a>
-        <p class="foot-tagline">Cloud Security Engineer especializado em Microsoft Security. Experiência real, sem enrolação.</p>
-      </div>
-      <div class="foot-links">
-        <a href="#sobre">Sobre</a>
-        <a href="#stack">Stack</a>
-        <a href="#experiencia">Experiência</a>
-        <a href="#certificacoes">Certificações</a>
-        <a href="#formacao">Formação</a>
-        <a href="#projetos">Projetos</a>
-        <a href="#contato">Contato</a>
-      </div>
-    </div>
-    <div class="foot-bottom">© <span id="year"></span> Thiego Araújo — Cloud Security Engineer</div>
+  <div class="container">
+    <span class="fnote" id="footer-note"></span>
+    <a href="#top" class="back-top" aria-label="Back to top">↑</a>
   </div>
 </footer>
 
-<script src="assets/script.js"></script>
+<div class="modal-backdrop" id="projectModal">
+  <div class="modal">
+    <button class="modal-close" id="modalClose">✕</button>
+    <div class="cat-row" id="modal-cats"></div>
+    <h3 id="modal-title"></h3>
+    <p class="summary" id="modal-summary" style="color:var(--text-dim); margin-top:6px"></p>
+    <div class="field"><div class="field-label" id="modal-lbl-problem"></div><p id="modal-problem"></p></div>
+    <div class="field"><div class="field-label" id="modal-lbl-approach"></div><p id="modal-approach"></p></div>
+    <div class="field"><div class="field-label" id="modal-lbl-result"></div><p id="modal-result"></p></div>
+    <div class="field"><div class="field-label" id="modal-lbl-stack"></div><div class="stack-row" id="modal-stack"></div></div>
+    <div class="field" id="modal-github-wrap"><a id="modal-github" href="#" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">GitHub ↗</a></div>
+  </div>
+</div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
