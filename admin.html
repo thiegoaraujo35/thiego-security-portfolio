@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Anexar certificados e documentos — Portfólio</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  body{padding:32px 0 80px}
+  .wrap{max-width:980px; margin:0 auto; padding:0 20px}
+  h1{font-size:28px; margin-bottom:8px}
+  h2{font-size:20px; margin:36px 0 6px}
+  .lead{color:var(--text-dim); margin-bottom:18px}
+  .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:18px 0}
+  @media (max-width:720px){ .steps{grid-template-columns:1fr} }
+  .step{background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-md); padding:14px 16px; font-size:14px; color:var(--text-dim)}
+  .step b{display:block; color:var(--text); margin-bottom:4px}
+  .alert{border:1px solid rgba(255,181,71,.45); background:rgba(255,181,71,.08); border-radius:var(--radius-md); padding:14px 16px; font-size:14px; color:var(--text-dim); line-height:1.55}
+  .alert b{color:var(--warn)}
+  .drop{
+    margin-top:18px; border:2px dashed #3a4150; border-radius:var(--radius-md); padding:26px; text-align:center;
+    color:var(--text-dim); cursor:pointer; transition:.2s; background:rgba(255,255,255,.01)
+  }
+  .drop.over{border-color:var(--accent); background:var(--accent-soft); color:var(--text)}
+  .drop b{color:var(--text)}
+  .row{background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-md); padding:16px; margin-top:12px}
+  .row.has-new{border-color:rgba(55,212,136,.55)}
+  .row-head{display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:12px; flex-wrap:wrap}
+  .row-title{font-weight:600}
+  .row-title small{color:var(--text-faint); font-weight:500; margin-left:8px}
+  .grid{display:grid; grid-template-columns:repeat(2,1fr); gap:10px 14px}
+  @media (max-width:720px){ .grid{grid-template-columns:1fr} }
+  label{display:block; font-size:11.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--text-faint); margin-bottom:4px; font-weight:600}
+  input[type=text],input[type=url],select{
+    width:100%; background:var(--bg-elev); border:1px solid var(--border); color:var(--text); border-radius:var(--radius-sm);
+    padding:9px 11px; font:inherit; font-size:14px
+  }
+  input:focus,select:focus{outline:2px solid var(--accent-2); outline-offset:1px}
+  .file-line{margin-top:10px; display:flex; flex-wrap:wrap; align-items:center; gap:10px; font-size:13.5px; color:var(--text-dim)}
+  .file-line .ok{color:var(--ok)}
+  .file-line .mono{color:var(--text)}
+  input[type=file]{font-size:13px; color:var(--text-dim)}
+  .toolbar{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; align-items:center}
+  .confirm{display:flex; gap:10px; align-items:flex-start; margin-top:22px; font-size:14px; color:var(--text-dim)}
+  .confirm input{margin-top:3px}
+  .err{color:var(--crit); font-size:14px; margin-top:12px; white-space:pre-line}
+  .done{margin-top:18px; border:1px solid rgba(55,212,136,.5); background:rgba(55,212,136,.08); border-radius:var(--radius-md); padding:16px; font-size:14px; color:var(--text-dim)}
+  .done b{color:var(--ok)}
+  .done ol{margin:8px 0 0 18px; padding:0}
+  .done code{color:var(--text)}
+  button.link{background:none; border:none; color:var(--accent-2); cursor:pointer; font:inherit; font-size:13px; padding:0}
+  button.danger{color:var(--crit)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Anexar certificados e documentos</h1>
+  <p class="lead">Escolha os arquivos, preencha o que quiser e clique em <b>Gerar pacote</b>. Nada sai do seu computador até você publicar.</p>
+
+  <div class="steps">
+    <div class="step"><b>1. Anexe</b>Arraste os PDFs/imagens aqui embaixo (o nome do arquivo com o código, ex.: <span class="mono">AZ-104.pdf</span>, já associa sozinho).</div>
+    <div class="step"><b>2. Gere o pacote</b>O botão no fim da página baixa um <span class="mono">.zip</span> com os arquivos e o <span class="mono">uploads.js</span> atualizado.</div>
+    <div class="step"><b>3. Publique</b>Extraia o zip e arraste a pasta <span class="mono">assets</span> para o repositório no GitHub (Add file → Upload files).</div>
+  </div>
+
+  <div class="alert">
+    <b>Atenção: tudo que você anexar fica público no site.</b> Certificados e transcripts costumam ter dados pessoais
+    (CPF, RG, matrícula, endereço, nº de candidato, e-mail). Antes de anexar, apague ou cubra esses dados no PDF, ou use só o
+    <b>link de verificação</b> (Credly, Microsoft Learn “Share transcript”, etc.) no campo de link, sem anexar o arquivo.
+    Histórico escolar completo: prefira não publicar.
+  </div>
+
+  <div class="drop" id="drop" tabindex="0" role="button" aria-label="Escolher arquivos">
+    <b>Arraste vários arquivos aqui</b> ou clique para escolher<br>
+    <span style="font-size:13px">PDF, PNG, JPG ou WEBP · até 20 MB cada · o que não casar com uma certificação vira “documento”</span>
+    <input type="file" id="bulk" multiple accept=".pdf,.png,.jpg,.jpeg,.webp" hidden>
+  </div>
+  <div id="bulk-report" class="lead" style="margin-top:10px; font-size:14px"></div>
+
+  <h2>Certificações</h2>
+  <p class="lead" style="margin-bottom:0">Os itens “TODO” são os que ainda não têm nome/código reais: preencha aqui para substituí-los.</p>
+  <div id="certs"></div>
+  <div class="toolbar"><button class="btn btn-ghost btn-sm" id="add-cert" type="button">+ Adicionar outra certificação</button></div>
+
+  <h2>Transcript e outros documentos</h2>
+  <p class="lead" style="margin-bottom:0">Ex.: transcript do Microsoft Learn, diploma, declaração. Pode ter arquivo, link, ou os dois.</p>
+  <div id="docs"></div>
+  <div class="toolbar"><button class="btn btn-ghost btn-sm" id="add-doc" type="button">+ Adicionar documento</button></div>
+
+  <label class="confirm" for="confirm" style="text-transform:none; letter-spacing:0; font-size:14px">
+    <input type="checkbox" id="confirm">
+    <span>Revisei os arquivos anexados e removi dados pessoais sensíveis (CPF, RG, matrícula, endereço). Entendo que ficarão públicos.</span>
+  </label>
+  <div class="toolbar">
+    <button class="btn btn-primary" id="generate" type="button">Gerar pacote (.zip)</button>
+  </div>
+  <div class="err" id="err" role="alert"></div>
+  <div id="done"></div>
+</div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/uploads.js"></script>
+<script src="assets/js/zip.js"></script>
+<script src="assets/js/admin.js"></script>
+</body>
+</html>

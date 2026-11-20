@@ -22,9 +22,33 @@ index.html                 → estrutura da página (todas as seções)
 assets/css/style.css       → todo o visual (tokens de cor no topo do arquivo)
 assets/js/data.js          → TODO O CONTEÚDO do site (edite aqui, não no HTML)
 assets/js/main.js          → lógica: renderização, i18n, filtros, modal, menu
+assets/js/uploads.js       → GERADO pelo admin.html (certificados/documentos anexados)
+assets/certificates/       → PDFs/imagens dos certificados (preenchido pelo admin)
+assets/documents/          → transcript e outros documentos (preenchido pelo admin)
+admin.html                 → ferramenta para anexar certificados e documentos
 assets/resume/             → coloque seu PDF de currículo aqui
 assets/cert-badges/        → (opcional) imagens de badges de certificação
 ```
+
+## Anexar certificados, transcript e outros documentos
+
+Sem editar código: use o **`admin.html`** (abra com duplo clique, ou em `.../admin.html` no site publicado).
+
+1. **Arraste os arquivos** (PDF, PNG, JPG ou WEBP, até 20 MB cada) para a área pontilhada.
+   Se o nome do arquivo tiver o código da certificação (ex.: `AZ-104.pdf`, `SC-200 certificate.pdf`),
+   ele é associado sozinho. O que não casar vira "documento" (ex.: `...transcript.pdf`).
+2. **Preencha** data (AAAA-MM), link de verificação (Credly, Microsoft etc.) e, nos itens "TODO",
+   o código e o nome reais. Dá para adicionar certificações extras e documentos.
+3. Marque a confirmação de privacidade e clique em **Gerar pacote (.zip)**.
+4. **Publique**: extraia o zip e arraste a pasta `assets` para o repositório no GitHub
+   (*Add file → Upload files → Commit changes*). Se usa só localmente, extraia por cima da pasta.
+
+No site, cada certificação ganha os botões **Ver certificado** (abre o PDF/imagem ali mesmo) e
+**Verificar** (link externo). Se houver documentos, aparece a seção **Documents / Documentos**.
+
+> **Privacidade:** tudo que for anexado fica público. Certificados e transcripts costumam ter CPF, RG,
+> matrícula, endereço ou número de candidato: apague/cubra esses dados antes, ou use só o link de
+> verificação (sem anexar o arquivo). Histórico escolar completo: prefira não publicar.
 
 ### Por que `data.js` e não `data/*.json`?
 
@@ -39,7 +63,7 @@ mesma que um JSON; é só a extensão que muda.
 Tudo fica em **`assets/js/data.js`**. Não precisa mexer no HTML nem no CSS.
 
 - **Dados pessoais / links**: objeto `meta` (email, LinkedIn, GitHub, PDF do currículo).
-- **Adicionar certificação**: adicione um objeto na lista `certifications`.
+- **Adicionar certificação**: pelo `admin.html` (recomendado) ou adicionando um objeto na lista `certifications`.
   Campos: `code`, `name`, `vendor`, `category` (`microsoft` | `cybersecurity` |
   `cloud` | `secops` | `other`), `date`, `verifyUrl`, `pdfUrl`.
 - **Adicionar projeto**: adicione um objeto na lista `projects`, preenchendo
